@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Low Carbon Footprint for 1D-CNNs with Temporal Max-Pooling</title>
+    
+
+    <meta itemprop="name" content="Low Carbon Footprint for 1D-CNNs with Temporal Max-Pooling">
+    <meta name="description" itemprop="description" content="Selly Beyene, Sean Giroux, Ria Jayaram, Caleb Lefcort, Ryan Mateo​">
+    <meta name="application-name" content="Low Carbon Footprint for 1D-CNNs with Temporal Max-Pooling">
+    <meta name="author" content="Selly Beyene, Sean Giroux, Ria Jayaram, Ryan Mateo, Caleb Lefcort">
+    <link rel="icon" type="image/png" href="/assets/myfavicon.png">
+    
+    <!-- Microsoft -->
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="msapplication-starturl" content="/">
+    <meta name="msapplication-tooltip" content="Low Carbon Footprint for 1D-CNNs with Temporal Max-Pooling">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="/">
+    <meta property="og:title" content="Low Carbon Footprint for 1D-CNNs with Temporal Max-Pooling">
+    <meta property="og:description" content="Selly Beyene, Sean Giroux, Ria Jayaram, Caleb Lefcort, Ryan Mateo​">
+    <meta property="og:image" content="https://raw.githubusercontent.com/ita-design-system/ita-medias/refs/heads/main/ogimage-11ty-libdoc.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Low Carbon Footprint for 1D-CNNs with Temporal Max-Pooling">
+    <meta name="twitter:description" content="Selly Beyene, Sean Giroux, Ria Jayaram, Caleb Lefcort, Ryan Mateo​">
+    <meta name="twitter:url" content="/">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/ita-design-system/ita-medias/refs/heads/main/ogimage-11ty-libdoc.png">
+    
+    <!-- iOS -->
+    <meta name="apple-mobile-web-app-title" content="Low Carbon Footprint for 1D-CNNs with Temporal Max-Pooling">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    
+    <!-- Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="color-scheme" content="light dark">
+
+    <meta name="generator" content="Eleventy v3.1.2">
+
+    <!-- Font fallback -->
+    <style>
+        @font-face {
+            font-family: "fallbackFont";
+            src: local("Arial");
+            size-adjust: 103%;
+        }
+        html, body {
+            font-family: fallbackFont, -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, Adwaita Sans, Cantarell, Ubuntu, roboto, noto, helvetica, arial, sans-serif;
+            font-display: swap;
+        }
+        pre, code {
+            font-family: Menlo, Consolas, Monaco, Adwaita Mono, Liberation Mono, Lucida Console, monospace;
+        }
+    </style>
+    <link rel="stylesheet" href="/core/assets/css/fonts.css">
+    <link rel="stylesheet" href="/core/assets/css/ds.css">
+    <link rel="stylesheet" href="/core/assets/css/ds__defaults.css">
+    <link rel="stylesheet" href="/core/assets/css/ds__colors.css">
+    <link rel="stylesheet" href="/core/assets/css/ds__dark_mode.css" media="(prefers-color-scheme: dark)" id="libdoc_dark_mode_css">
+    <link rel="stylesheet" href="/core/assets/css/hljs/night-owl.css">
+    <link rel="stylesheet" href="/core/assets/fonts/icomoon/style.css">
+    <style>
+        :root {
+            --libdoc-image-background-color-light-mode: transparent;
+            --libdoc-image-background-color-dark-mode: transparent;
+            --libdoc-image-background-color: var(--libdoc-image-background-color-light-mode);
+            --ita-widths-sidebar: 300px;
+            --ita-widths-content: 700px;
+            --ita-widths-main-container-max: calc(2 * var(--ita-widths-content) + var(--ita-widths-sidebar));
+        }
+        
+            main img {
+                border-radius: 9px;
+            }
+        
+    </style>
+    <noscript>
+        <link rel="stylesheet" href="/core/assets/css/noscript.css">
+    </noscript>
+    <script>
+        const libdocMessages = {
+            
+                copiedToClipboard: `Copied to clipboard`,
+                code: `Code`,
+                colorSchemes: `Color schemes`,
+                colorSchemeAuto: `Automatic`,
+                colorSchemeDescriptionAuto: `Based on you operating system preference`,
+                colorSchemeLight: `Light`,
+                colorSchemeDescriptionLight: `Always apply light mode`,
+                colorSchemeDark: `Dark`,
+                colorSchemeDescriptionDark: `Always apply dark mode`,
+                copied: `Copied`,
+                copy: `Copy`,
+                copyCode: `Copy code`,
+                copyHTML: `Copy HTML`,
+                copyURL: `Copy URL`,
+                enable: `Enable`,
+                goToTopOfPage: `Go to top of page`,
+                editThisPage: `Edit this page`,
+                height: `Height`,
+                homepage: `Homepage`,
+                homepageShort: `Home`,
+                inANewTab: `In a new tab`,
+                lastModified: `Last modified`,
+                menu: `Menu`,
+                noscriptAlert: `It seems that your browser JavaScript is disabled, LibDoc is set to fallback mode with reduced features.`,
+                open: `Open`,
+                openInANewTab: `Open in a new tab`,
+                otherCustomLinks: `Other custom links`,
+                page: `Page`,
+                pages: `Pages`,
+                pagesTagged: `Pages tagged`,
+                preferences: `Preferences`,
+                reload: `Reload`,
+                reloaded: `Reloaded`,
+                result: `result`,
+                sandbox: `Sandbox`,
+                sandboxResizeHelper: `Click and drag to resize code and result`,
+                search: `Search`,
+                searchClear: `Clear input`,
+                searchMinimumCharacters: `3 characters min.`,
+                searchResultsNoResultForQuery: `No result for query`,
+                searchOccurrence: `Occurrence search`,
+                searchOccurrencesCurrent: `Current search occurrence`,
+                searchOccurrencesNext: `Next search occurrence`,
+                searchOccurrencesPrevious: `Previous search occurrence`,
+                searchOccurrencesStop: `Stop search occurrences`,
+                searchPlaceholder: `Press 🆂 to search`,
+                searchSubmit: `Submit search`,
+                tableOfContent: `Table of content`,
+                tableOfContentAbbr: `TOC`,
+                tag: `Tag`,
+                tagsList: `Tags list`,
+                tagsListDescription: `List of every tag available`,
+                toggleFloatingToc: `Toggle floating Table of content`,
+                top: `Top`,
+                userPreferences: `User preferences`,
+                width: `Width`,
+        }
+        const libdocConfig = {
+            blogTitle: `Blog`,
+            blogDescription: `Here is the description of the blog part`,
+            displayTagsListLink: false
+        }
+        const libdocSystem = {
+            searchIndexUrl: `/core/assets/js/search_index.json`,
+            fuzzyIndexUrl: `/core/assets/js/fuzzy_index.json`,
+            productionUrl: `eleventy-libdoc.netlify.app`,
+            blogPostsCount: ``
+        }
+    </script>
+</head>
+<body class="d-flex fd-column ai-center | m-0">
+    <div class="d-flex | w-100" fd-column="xs,sm" ai-start="md" ai-center="xs,sm" pl-5="md" style="max-width: var(--ita-widths-main-container-max)">
+        <div id="sidebar" class="d-flex fd-column | pos-sticky top-0 z-3" ai-center="xs,sm" w-100="xs,sm" w-sidebar="md">
+            <nav id="nav_small_devices" class="d-flex | pos-fixed bottom-0 left-0 z-1 | w-100 h-60px" d-none="md">
+                <div class="d-flex jc-space-between | w-100 | bc-neutral-100 btwidth-1 btstyle-dashed bcolor-neutral-500">
+                    <a href="/" class="d-flex fd-column jc-center ai-center gap-1 | pl-5 pr-2 | td-none ta-center | c-primary-900 b-0 brad-3">
+                        <span class="icon-house fs-6"></span>
+                        <span class="fvs-wght-400 fs-1 tt-uppercase">Home</span>
+                    </a>
+                    
+                        <a href="/search/" class="d-flex fd-column jc-center ai-center gap-1 | pl-2 pr-2 | td-none ta-center | c-primary-900 b-0 brad-3">
+                            <span class="icon-magnifying-glass fs-6"></span>
+                            <span class="fvs-wght-400 fs-1 tt-uppercase">Search</span>
+                        </a>
+                    
+                    <button type="button" id="sd_floating_toc_toggle_btn" class="d-flex fd-column jc-center ai-center gap-1 | pl-2 pr-2 | ta-center | cur-pointer c-primary-900 bc-neutral-100 b-0 brad-3" disabled="">
+                        <span class="icon-list-dashes fs-6"></span>
+                        <span class="fvs-wght-400 fs-1 tt-uppercase">TOC</span>
+                    </button>
+                    <button type="button" id="sd_gtt_btn" class="d-flex fd-column jc-center ai-center gap-1 | pl-2 pr-2 | ta-center | cur-pointer c-primary-900 bc-neutral-100 b-0 brad-3" onclick="libdocUi.handlers._clickGTT()">
+                        <span class="icon-arrow-line-up fs-6"></span>
+                        <span class="fvs-wght-400 fs-1 tt-uppercase">Top</span>
+                    </button>
+                    <div class="d-flex ai-center">
+                        <input type="checkbox" name="nav_primary" id="nav_primary_checkbox" value="" class="pos-absolute opa-0 pe-none">
+                        <label for="nav_primary_checkbox" class="d-flex fd-column jc-center ai-center gap-1 | h-100 pl-2 pr-5 | ta-center | cur-pointer c-primary-900 bc-neutral-100">
+                            <span class="icon-list fs-6"></span>
+                            <span class="fvs-wght-400 fs-1 tt-uppercase">Menu</span>
+                        </label>
+                    </div>
+                </div>
+            </nav>
+            <nav id="nav_primary_container" class="d-flex d-none--xs d-none--sm fd-column | w-100 | bwidth-1 bstyle-dashed bcolor-neutral-500 | __soft-shadow" mt-5="md" maxw-sidebar="md" maxh-sidebar="md" h-sidebar="xs,sm" brad-3="md">
+                <menu id="nav_primary_header" class="
+                    d-flex fd-column
+                    pos-sticky top-0 z-1
+                    m-0 p-0 
+                    ls-none
+                    " gap-5="md" bradtl-3="md" bradtr-3="md">
+                    <li class="d-flex ai-center">
+                        
+                            <a href="/" class="p-5 | td-none fvs-wght-700 lsp-5 fs-8 tws-balance | c-neutral-900" title="This is the description of my project title">
+                                Low Carbon Footprint for 1D-CNNs with Temporal Max-Pooling
+                            </a>
+                        
+                    </li>
+                    
+                        <li class="pos-relative z-1" d-none="xs,sm">
+                            <form action="/search/" class="d-flex fd-column | pos-relative | pl-5 pr-5 | search_form | auto-search-wrapper">
+                                <label for="searchInput" class="pos-absolute z-2 | ml-5 t-tY-50 | fvs-wght-400 fs-1 tt-uppercase | c-neutral-900 bc-neutral-100">
+                                    Search
+                                </label>
+                                <input id="searchInput" type="search" name="search" autocomplete="off" class="pos-relative z-1 | pl-5 pr-5 pt-4 pb-4 | fs-3 | c-neutral-900 bc-neutral-100 brad-4 bwidth-1 bstyle-dashed bcolor-neutral-500" placeholder="Press 🆂 to search" value="">
+                                <div class="pos-relative z-1 | d-flex ai-center | pos-absolute top-0 right-0 | h-100 mr-5">
+                                    <button type="button" class="pos-relative | p-4 pr-7 | fs-3 | c-neutral-900 bc-neutral-100 c-neutral-900 b-0 cur-pointer | search_form__clear_btn" title="Clear input" hidden="">
+                                        <span class="icon-x | pos-absolute top-50 left-50 t-tY-50 t-tX-50"></span>
+                                    </button>
+                                    <button type="submit" class="pos-relative | h-100 p-0 ar-square | fs-5 | brad-4 bc-primary-500 c-neutral-100 bwidth-1 bstyle-dashed bcolor-neutral-100 cur-pointer" title="Submit search">
+                                        <span class="icon-magnifying-glass | pos-absolute top-50 left-50 t-tY-50 t-tX-50"></span>
+                                    </button>
+                                </div>
+                            </form>
+                        </li>
+                    
+                    
+                        <li id="custom_links" class="d-flex ai-center rgap-1 | pos-relative | pb-3 pl-5 o-auto">
+                            
+                                <a href="https://dl.acm.org/doi/10.1145/3627673.3679678" class="
+                                    d-flex ai-center gap-1
+                                    pt-2 pb-2 pr-5
+                                    fvs-wght-700 fs-2 lsp-3 lh-1 tt-uppercase td-none ws-nowrap
+                                    c-primary-600" target="_blank">
+                                    ACM
+                                </a>
+                            
+                                <a href="https://github.com/anandharaju/HotConv" class="
+                                    d-flex ai-center gap-1
+                                    pt-2 pb-2 pr-5
+                                    fvs-wght-700 fs-2 lsp-3 lh-1 tt-uppercase td-none ws-nowrap
+                                    c-primary-600" target="_blank">
+                                    GitHub
+                                </a>
+                            
+                        </li>
+                    
+                </menu>
+                
+                
+
+                
+
+                <div id="nav_primary" class="pos-relative | fg-1 o-auto">
+                    
+                </div>
+            </nav>
+        </div>
+        <main class="pos-relative" w-100-minus-sidebar="md" w-100="xs,sm">
+            <header class="d-flex fd-column | pt-5  mb-7">
+                <nav class="d-flex jc-space-between | pos-relative">
+                    <ul class="d-flex ai-center gap-2 | p-0 m-0 | fs-2 lh-3 | ls-none" style="width: calc(100% - 42px)">
+    <li class="d-flex ai-center gap-2">
+        <a href="/" class="pos-relative | p-5 | fs-4 td-none | brad-4 bc-neutral-100 bwidth-1 bstyle-dashed bcolor-neutral-500 __hover-1 __soft-shadow" title="Homepage">
+            <span class="icon-house | pos-absolute top-50 left-50 t-tY-50 t-tX-50"></span>
+        </a> /
+    </li>
+    <li class="o-auto">
+        <ul class="d-flex ai-center gap-2 | p-0 m-0 | fs-2 lh-3 | ls-none">
+            
+            
+            
+            <li class="c-neutral-800 ws-nowrap">Low Carbon Footprint for 1D-CNNs with Temporal Max-Pooling</li>
+        </ul>
+    </li>
+</ul>
+                    <details id="user_preferences">
+                        <summary class="d-flex | pos-relative z-2 | p-5 | fs-4 td-none | brad-4 bc-neutral-100 bwidth-1 bstyle-dashed bcolor-neutral-500 cur-pointer __hover-1 __soft-shadow" title="User preferences">
+                            <span class="icons">
+                                <span class="icon-faders | pos-absolute top-50 left-50 t-tY-50 t-tX-50"></span>
+                                <span class="icon-x | pos-absolute top-50 left-50 t-tY-50 t-tX-50"></span>
+                            </span>
+                        </summary>
+                        <menu class="d-flex fd-column | pos-absolute right-0 z-1 | w-100 mt-3 mb-0 p-4 | ls-none bc-neutral-100 brad-2 bwidth-1 bstyle-dashed bcolor-neutral-500 | __soft-shadow" style="max-width: 400px">
+                            <li class="d-flex fd-column gap-3 | c-neutral-900">
+                                <p class="m-0 | fs-3 fvs-wght-500">Color schemes</p>
+                                <div class="d-flex fd-column gap-3">
+                                    
+                                        <div>
+                                            <input type="radio" name="libdoc_color_scheme" id="libdoc_color_scheme__auto" class="pos-absolute opa-0" value="auto" checked="">
+                                            <label for="libdoc_color_scheme__auto" class="d-flex ai-start gap-2">
+                                                <span class="d-flex fd-column gap-1">
+                                                    <strong class="fs-2 tt-uppercase">Automatic</strong>
+                                                    <span class="fs-2 | c-neutral-700">Based on you operating system preference</span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    
+                                        <div>
+                                            <input type="radio" name="libdoc_color_scheme" id="libdoc_color_scheme__light" class="pos-absolute opa-0" value="light">
+                                            <label for="libdoc_color_scheme__light" class="d-flex ai-start gap-2">
+                                                <span class="d-flex fd-column gap-1">
+                                                    <strong class="fs-2 tt-uppercase">Light</strong>
+                                                    <span class="fs-2 | c-neutral-700">Always apply light mode</span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    
+                                        <div>
+                                            <input type="radio" name="libdoc_color_scheme" id="libdoc_color_scheme__dark" class="pos-absolute opa-0" value="dark">
+                                            <label for="libdoc_color_scheme__dark" class="d-flex ai-start gap-2">
+                                                <span class="d-flex fd-column gap-1">
+                                                    <strong class="fs-2 tt-uppercase">Dark</strong>
+                                                    <span class="fs-2 | c-neutral-700">Always apply dark mode</span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                    
+                                </div>
+                            </li>
+                        </menu>
+                    </details>
+                </nav>
+                <h1 class="mt-3 mb-0 | lsp-5 fvs-wght-700 tws-balance " fs-10="md" fs-9="xs,sm">
+                    Low Carbon Footprint for 1D-CNNs with Temporal Max-Pooling
+                </h1>
+                
+                    <p class="d-flex ai-center fw-wrap gap-2 | pt-5 pl-5 pb-5 m-0 | fvs-wght-400 tws-balance fs-7 lsp-3 lh-5 | blwidth-1 blstyle-dashed bcolor-neutral-500" pt-3="xs" pb-3="xs" fs-6="sm" fs-5="xs">
+                        Selly Beyene, Sean Giroux, Ria Jayaram, Caleb Lefcort, Ryan Mateo​
+                    </p>
+                
+                
+                    
+                        <nav class="d-flex gap-2 fw-wrap | pl-5 pt-3 pb-5 | blwidth-1 blstyle-dashed bcolor-neutral-500">
+                            
+                                
+                                    <a href="/tags/widgets/" class="
+                                        d-flex ai-center gap-1
+                                        pl-2 pr-3 pt-1 pb-1
+                                        fs-2 lsp-2 td-none
+                                        bc-primary-200 bwidth-1 bstyle-solid bcolor-primary-400 brad-1 bradtl-3 bradbl-3">
+                                        <span class="icon-tag-simple"></span>
+                                        <span class="page_tag">widgets</span>
+                                    </a>
+                                
+                            
+                        </nav>
+                    
+                    <div class="d-flex ai-center | m-0 | blwidth-1 blstyle-dashed bcolor-neutral-500">
+                        <div class="pl-5 | bbwidth-1 bbstyle-dashed bcolor-neutral-500"></div>
+                        
+                            <p class="d-flex ai-center gap-2 | m-0 pr-2 | fvs-wght-400 fs-3 lsp-3 lh-3 | c-neutral-700 bc-primary-100" fs-2="xs">
+                                <span class="icon-calendar-dots fs-6"></span>
+                                <span ws-nowrap="sm,md">
+                                    
+                                    
+                                        
+                                        2025-12-02
+                                    
+                                </span>
+                            </p>
+                        
+                        <div class="pl-5 w-100 | bbwidth-1 bbstyle-dashed bcolor-neutral-500"></div>
+                        
+                            <div class="d-flex ai-center gap-3">
+                                <div class="pos-relative | p-5 | brad-4 bc-neutral-100 bwidth-1 bstyle-dashed bcolor-neutral-500">
+                                    <div class="icon-user | pos-absolute top-50 left-50 t-tY-50 t-tX-50 | fs-6"></div>
+                                </div>
+                                <p class="d-flex fd-column | m-0 | fvs-wght-400 fs-3 lsp-3 lh-3 | c-neutral-700 bc-primary-100" fs-2="xs" ws-nowrap="sm,md">
+                                    Selly Beyene, Sean Giroux, Ria Jayaram, Ryan Mateo, Caleb Lefcort
+                                </p>
+                            </div>
+                        
+                    </div>
+                
+                
+                    <details id="toc_main" open="">
+                        <summary class="d-flex ai-center | pt-5 pb-5 | fvs-wght-500 fs-3 | bwidth-1 bstyle-dashed bcolor-neutral-500 btwidth-0 brwidth-0 cur-pointer">
+                            <span class="pl-5 | bbwidth-1 bbstyle-dashed bcolor-neutral-500"></span>
+                            <span class="d-flex ai-center gap-1 | lsp-2">
+                                <span class="icon-minus-circle | fs-6 | c-primary-500"></span>
+                                <span class="icon-plus-circle | fs-6 | c-primary-500"></span>
+                                Table of content
+                            </span>
+                        </summary>
+                        
+                    <ol class="cgap-3em | m-0 pl-0 pb-5 o-auto | lh-1 | ls-none bwidth-1 bstyle-dashed bcolor-neutral-500 btwidth-0 brwidth-0" d-flex="xs,sm" fd-column="xs,sm" fw-wrap="xs,sm" columns-3="md" columns-2="sm" maxh-300px="sm" maxh-200px="xs">
+                        <li class="d-flex">
+                            <a href="#introduction" class="pl-5 pt-1 pb-1 | fs-4 lsp-3 lh-5 fvs-wght-400 | blwidth-1 blstyle-dashed bcolor-neutral-500">
+                                Introduction
+                            </a>
+                        </li>
+                        <li class="d-flex">
+                            <a href="#research-questions" class="pl-5 pt-1 pb-1 | fs-4 lsp-3 lh-5 fvs-wght-400 | blwidth-1 blstyle-dashed bcolor-neutral-500">
+                                Research Questions
+                            </a>
+                        </li>
+                        <li class="d-flex">
+                            <a href="#related-work" class="pl-5 pt-1 pb-1 | fs-4 lsp-3 lh-5 fvs-wght-400 | blwidth-1 blstyle-dashed bcolor-neutral-500">
+                                Related Work
+                            </a>
+                        </li>
+                        <li class="d-flex">
+                            <a href="#methods" class="pl-5 pt-1 pb-1 | fs-4 lsp-3 lh-5 fvs-wght-400 | blwidth-1 blstyle-dashed bcolor-neutral-500">
+                                Methods
+                            </a>
+                        </li>
+                        <li class="d-flex">
+                            <a href="#resultsinsights" class="pl-5 pt-1 pb-1 | fs-4 lsp-3 lh-5 fvs-wght-400 | blwidth-1 blstyle-dashed bcolor-neutral-500">
+                                Results/Insights
+                            </a>
+                        </li>
+                        <li class="d-flex">
+                            <a href="#critique-amp-discussion" class="pl-5 pt-1 pb-1 | fs-4 lsp-3 lh-5 fvs-wght-400 | blwidth-1 blstyle-dashed bcolor-neutral-500">
+                                Critique &amp; Discussion
+                            </a>
+                        </li>
+                        <li class="d-flex">
+                            <a href="#strengths" class="pl-5 pt-1 pb-1 | fs-4 lsp-3 lh-5 fvs-wght-400 | blwidth-1 blstyle-dashed bcolor-neutral-500">
+                                Strengths
+                            </a>
+                        </li>
+                        <li class="d-flex">
+                            <a href="#weaknesseslimitations" class="pl-5 pt-1 pb-1 | fs-4 lsp-3 lh-5 fvs-wght-400 | blwidth-1 blstyle-dashed bcolor-neutral-500">
+                                Weaknesses/Limitations
+                            </a>
+                        </li>
+                        <li class="d-flex">
+                            <a href="#ethicalglobal-implications" class="pl-5 pt-1 pb-1 | fs-4 lsp-3 lh-5 fvs-wght-400 | blwidth-1 blstyle-dashed bcolor-neutral-500">
+                                Ethical/global implications
+                            </a>
+                        </li>
+                        <li class="d-flex">
+                            <a href="#future-directions" class="pl-5 pt-1 pb-1 | fs-4 lsp-3 lh-5 fvs-wght-400 | blwidth-1 blstyle-dashed bcolor-neutral-500">
+                                Future Directions
+                            </a>
+                        </li>
+                        <li class="d-flex">
+                            <a href="#references" class="pl-5 pt-1 pb-1 | fs-4 lsp-3 lh-5 fvs-wght-400 | blwidth-1 blstyle-dashed bcolor-neutral-500">
+                                References
+                            </a>
+                        </li></ol>
+                    </details>
+                
+            </header>
+            <noscript>
+                
+                
+                <aside class="widget widget-alert">
+                    <div class="alert ">
+                        It seems that your browser JavaScript is disabled, LibDoc is set to fallback mode with reduced features.
+                    </div>
+                </aside>
+            
+            </noscript>
+            
+                        <h1 id="introduction" pl-9="xs,sm">
+                            <a href="#introduction" title="Introduction" class="pos-absolute top-50 left-0 t-tY-50 | p-4 ml-1 | td-none | brad-4 bc-neutral-100 bwidth-1 bstyle-dashed bcolor-neutral-500 __hover-1 __soft-shadow" ml-3="xs,sm">
+                                <span class="icon-link-simple | pos-absolute top-50 left-50 t-tY-50 t-tX-50 | fs-4"></span>
+                            </a>
+                    Introduction</h1>
+<p>The paper “Low Carbon Footprint for 1D-CNNs with Temporal Max-Pooling” by Anandharaju Durai Raju and Ke Wang addresses growing concerns about the significant carbon emissions associated with AI technologies and proposes solutions to make 1D-CNNs with temporal max-pooling more carbon-efficient. The authors state that AI has become such a high-energy consumer that it emits about as much carbon dioxide as the aviation industry. Current techniques for training CNNs consume substantial GPU memory, resulting in a large carbon footprint. Another issue is that the accessibility of training complex CNNs for researchers is low due to the high cost of high-end GPUs with large amounts of memory.</p>
+
+                        <h1 id="research-questions" pl-9="xs,sm">
+                            <a href="#research-questions" title="Research Questions" class="pos-absolute top-50 left-0 t-tY-50 | p-4 ml-1 | td-none | brad-4 bc-neutral-100 bwidth-1 bstyle-dashed bcolor-neutral-500 __hover-1 __soft-shadow" ml-3="xs,sm">
+                                <span class="icon-link-simple | pos-absolute top-50 left-50 t-tY-50 t-tX-50 | fs-4"></span>
+                            </a>
+                    Research Questions</h1>
+<p>This research investigates methods to mitigate the environmental impact of Artificial Intelligence by addressing the high GPU memory consumption and carbon emissions associated with training 1D-CNNs on large sequential inputs. The study explores whether the inherent sparsity mechanism of temporal max-pooling, where only a single &quot;hot&quot; activation per filter contributes to the output, can be leveraged to retroactively prune unused &quot;cold&quot; activations and gradients during backpropagation. Consequently, the core inquiry is whether this targeted strategy can significantly lower computational resource demands and carbon footprints compared to existing memory-efficient variants, such as MalConv2, while ensuring the model achieves identical performance to full computation methods without compromising input sequence length or accuracy.</p>
+
+                        <h1 id="related-work" pl-9="xs,sm">
+                            <a href="#related-work" title="Related Work" class="pos-absolute top-50 left-0 t-tY-50 | p-4 ml-1 | td-none | brad-4 bc-neutral-100 bwidth-1 bstyle-dashed bcolor-neutral-500 __hover-1 __soft-shadow" ml-3="xs,sm">
+                                <span class="icon-link-simple | pos-absolute top-50 left-50 t-tY-50 t-tX-50 | fs-4"></span>
+                            </a>
+                    Related Work</h1>
+<p>[2] Raff et al. (MalConv2) — Constant-memory training for extreme-length 1D sequences</p>
+<p>Raff et al. introduce a reformulation of temporal max pooling that makes training memory effectively invariant to sequence length, motivated by malware byte sequence classification where inputs can be extremely large. This enables CNN-based malware models to scale to much longer sequences and reports large practical efficiency gains, reframing long-sequence 1D-CNNs as feasible rather than purely memory-bound. Connection to the primary paper: Raju &amp; Wang treat MalConv2 as the closest baseline and then target what remains expensive in practice—especially overhead/complexity and additional forward/backward-pass costs—by exploiting max-pooling sparsity more directly (keeping only the hot activations/gradients instead of full dense maps).</p>
+<p>[3] Dao et al. (FlashAttention) — Exact, IO-aware kernel efficiency</p>
+<p>FlashAttention shows you can keep attention exact while reducing memory reads/writes by making the algorithm IO-aware (tiling to reduce costly traffic between GPU high-bandwidth memory and on-chip SRAM). It’s a canonical example that major efficiency wins can come from operator/kernel design, not only changing model architecture or using approximations. Connection to the primary paper: HotConv uses the same structure-aware, keep-it-exact philosophy, but aimed at temporal max-pooling in 1D-CNNs—leveraging the fact that only max locations matter for learning to prune cold activations/gradients and cut GPU memory/time without sacrificing accuracy.</p>
+<p>[4] Gu et al. (GreenFlow) — Carbon-aware scheduling at the systems level</p>
+<p>GreenFlow proposes a GPU-cluster scheduler that reduces job completion time under a carbon-emissions budget, i.e., it optimizes when/where jobs run (and with what configurations) to manage emissions at the cluster level without changing the model itself. Connection to the primary paper: HotConv reduces the intrinsic per-job cost (GPU memory and training time) by exploiting max-pooling sparsity and improving data loading, while GreenFlow reduces emissions through systems scheduling—they’re complementary levers (algorithmic efficiency vs. operational policy).</p>
+
+                        <h1 id="methods" pl-9="xs,sm">
+                            <a href="#methods" title="Methods" class="pos-absolute top-50 left-0 t-tY-50 | p-4 ml-1 | td-none | brad-4 bc-neutral-100 bwidth-1 bstyle-dashed bcolor-neutral-500 __hover-1 __soft-shadow" ml-3="xs,sm">
+                                <span class="icon-link-simple | pos-absolute top-50 left-50 t-tY-50 t-tX-50 | fs-4"></span>
+                            </a>
+                    Methods</h1>
+<p><strong>PDL (Partitioned Data Loading)</strong>
+PDL reduces training time by grouping samples of similar length into partitions stored on disk. During training, only one partition is loaded into RAM at a time, allowing batches with minimal padding while still preserving randomness. This eliminates costly disk access and roughly halves total training time compared to MalConv2.
+<picture class="eleventy-image"><source type="image/avif" srcset="/.11ty/image/?src=assets%5Cfig3.png&width=730&format=avif&via=transform 730w"><img loading="lazy" decoding="async" src="/.11ty/image/?src=assets%5Cfig3.png&width=730&format=webp&via=transform" alt="Image" width="730" height="434"></picture></p>
+<p><strong>HotConv</strong>
+A training strategy that reduces GPU memory usage by exploiting the sparsity in temporal max-pooling: only one “hot” activation per filter is needed. It avoids the expensive second forward pass used in MalConv2 by storing only the relevant activations and gradients, reducing GPU memory consumption and carbon footprint without hurting accuracy.
+<picture class="eleventy-image"><source type="image/avif" srcset="/.11ty/image/?src=assets%5Calg1.png&width=258&format=avif&via=transform 258w"><img loading="lazy" decoding="async" src="/.11ty/image/?src=assets%5Calg1.png&width=258&format=webp&via=transform" alt="Image" width="258" height="205"></picture></p>
+<p><strong>HotConvEco</strong>
+Extends HotConv by also slicing the backward so that only a subset of necessary embeddings and gradients are kept in GPU memory at once. This further reduces GPU memory usage to about 1/22 that of MalConv2, making training faster, more carbon-efficient, and feasible even under tiny GPU budgets.</p>
+
+                        <h1 id="resultsinsights" pl-9="xs,sm">
+                            <a href="#resultsinsights" title="Results/Insights" class="pos-absolute top-50 left-0 t-tY-50 | p-4 ml-1 | td-none | brad-4 bc-neutral-100 bwidth-1 bstyle-dashed bcolor-neutral-500 __hover-1 __soft-shadow" ml-3="xs,sm">
+                                <span class="icon-link-simple | pos-absolute top-50 left-50 t-tY-50 t-tX-50 | fs-4"></span>
+                            </a>
+                    Results/Insights</h1>
+<p>The experimental evaluation demonstrates that the proposed HotConv and HotConvEco approaches significantly outperform existing methods in resource efficiency without compromising model performance.  On the BODMAS dataset, the HotConvEco variant reduced GPU memory consumption to 1/22 of that used by the state-of-the-art MalConv2, while also requiring less training time. When combined with the novel Partitioned Data Loading (PDL) strategy, the approach reduced the overall carbon footprint to approximately 1/7th of MalConv2's footprint and cut training time by half. Critically, these efficiency gains allowed for the use of larger batch sizes and filter counts under constrained budgets, which actually boosted the model's Precision-Recall AUC compared to the baseline. The results confirm that harnessing activation sparsity allows for the processing of extreme-length sequences (up to full sequence length) that would otherwise cause Out-Of-Memory errors in standard MalConv training, proving that sustainable AI training is achievable without sacrificing accuracy.</p>
+
+                        <h1 id="critique-amp-discussion" pl-9="xs,sm">
+                            <a href="#critique-amp-discussion" title="Critique &amp; Discussion" class="pos-absolute top-50 left-0 t-tY-50 | p-4 ml-1 | td-none | brad-4 bc-neutral-100 bwidth-1 bstyle-dashed bcolor-neutral-500 __hover-1 __soft-shadow" ml-3="xs,sm">
+                                <span class="icon-link-simple | pos-absolute top-50 left-50 t-tY-50 t-tX-50 | fs-4"></span>
+                            </a>
+                    Critique &amp; Discussion</h1>
+
+                        <h2 id="strengths" pl-9="xs,sm">
+                            <a href="#strengths" title="Strengths" class="pos-absolute top-50 left-0 t-tY-50 | p-4 ml-1 | td-none | brad-4 bc-neutral-100 bwidth-1 bstyle-dashed bcolor-neutral-500 __hover-1 __soft-shadow" ml-3="xs,sm">
+                                <span class="icon-link-simple | pos-absolute top-50 left-50 t-tY-50 t-tX-50 | fs-4"></span>
+                            </a>
+                    Strengths</h2>
+<p>Provides memory and energy reductions without performance loss
+A major strength of HotConv and HotConvEco is that they achieve significant memory and energy savings without sacrificing model performance. By leveraging the sparsity created by temporal max-pooling, they avoid storing or backpropagating unnecessary activations, significantly reducing memory overhead. This allows for faster training emitting fewer carbon emissions while maintaining identical outputs. This approach does not approximate or modify the model’s behaviour, distinguishing it from several other compression techniques.</p>
+<p>Enables easy adoption for existing CNN pipelines
+Given that HotConv modifies the training procedures rather than the neural architecture itself, convolutional layers, pooling structure, and downstream classifiers remain unchanged. As a result, existing 1D CNN pipelines can adopt the method with minimal code modifications. This lowers the integration barrier for those who do not wish to redesign models from scratch. In fields like malware analysis or genomics, where models are already well-established, this can be an especially key benefit.</p>
+
+                        <h2 id="weaknesseslimitations" pl-9="xs,sm">
+                            <a href="#weaknesseslimitations" title="Weaknesses/Limitations" class="pos-absolute top-50 left-0 t-tY-50 | p-4 ml-1 | td-none | brad-4 bc-neutral-100 bwidth-1 bstyle-dashed bcolor-neutral-500 __hover-1 __soft-shadow" ml-3="xs,sm">
+                                <span class="icon-link-simple | pos-absolute top-50 left-50 t-tY-50 t-tX-50 | fs-4"></span>
+                            </a>
+                    Weaknesses/Limitations</h2>
+<p>Restricted to architectures using temporal max-pooling
+A key limitation of HotConvEco is that its effectiveness depends on the behaviour of temporal max-pooling. In max-pooling, only the position with the highest activation contributes to the final output, meaning that only this position receives a meaningful gradient during backpropagation. Due to this property, the method can ignore all other activations and drastically reduce memory usage. Models that use average pooling, attention mechanisms, or recurrent layers do not exhibit this pattern as gradients are distributed across higher numbers of positions. As a result, the approach used by HotConvEco only applies to a subset of 1D CNN architectures. In particular, it may become less broadly applicable as sequence models shift further toward transformer-based designs.</p>
+<p>Limited gains from partitioned data loading on highly varied datasets
+Partitioned Data Loading (PDL) aims to reduce padding and I/O overhead by grouping inputs of similar length. This can be very effective when input sizes fall within a reasonable range. However, datasets with very high variability in input length may still produce partitions with hefty size differences, limiting the reduction needed in padding. In these cases, the computation required for the additional preprocessing steps may not be justified.</p>
+
+                        <h2 id="ethicalglobal-implications" pl-9="xs,sm">
+                            <a href="#ethicalglobal-implications" title="Ethical/global implications" class="pos-absolute top-50 left-0 t-tY-50 | p-4 ml-1 | td-none | brad-4 bc-neutral-100 bwidth-1 bstyle-dashed bcolor-neutral-500 __hover-1 __soft-shadow" ml-3="xs,sm">
+                                <span class="icon-link-simple | pos-absolute top-50 left-50 t-tY-50 t-tX-50 | fs-4"></span>
+                            </a>
+                    Ethical/global implications</h2>
+<p>Reduces hardware barrier for long-sequence models
+Long-sequence models often require substantial GPU memory, which can make them inaccessible to smaller institutions or research groups with limited computational resources. HotConvEvo helps remove this barrier by enabling long-sequence training on more constrained hardware, including older GPUs with limited memory. This increased accessibility allows a wider range of the computer science community to work with complex sequence tasks that would be infeasible otherwise.</p>
+<p>Lowers the environmental footprint of training
+By both reducing memory usage and shortening training time, HotConvEco lowers the overall carbon emissions associated with each training cycle. As the volume of data required to train machine learning models continues to increase, these factors become especially important. Through consuming fewer resources while maintaining comparable performance, HotConvEvo sets the stage for more sustainable AI/ML research and deployment.</p>
+
+                        <h1 id="future-directions" pl-9="xs,sm">
+                            <a href="#future-directions" title="Future Directions" class="pos-absolute top-50 left-0 t-tY-50 | p-4 ml-1 | td-none | brad-4 bc-neutral-100 bwidth-1 bstyle-dashed bcolor-neutral-500 __hover-1 __soft-shadow" ml-3="xs,sm">
+                                <span class="icon-link-simple | pos-absolute top-50 left-50 t-tY-50 t-tX-50 | fs-4"></span>
+                            </a>
+                    Future Directions</h1>
+<p>Extend to neural architectures beyond max-pooling
+Given that only a subset of models rely on temporal max-pooling, one direction for future work could be the exploration of how the ideas behind this innovation can be adapted to models based on other pooling operations. Sequence architectures based on operations like average pooling and attention distribute gradients across multiple positions rather than a single one. Identifying forms of sparsity within these architectures could help improve the robustness of these findings.
+Evaluate top-k pooling variants to reduce noise sensitivity
+While the sparsity generated by max-pooling heavily reduces resource use, it depends on just a single activation. This can make models very sensitive to noise or fluctuations in the input. Introducing the option to utilize k activations as opposed to one could combat this sensitivity while maintaining substantial levels of sparsity.
+Validate performance on a more diverse range of long-sequence tasks
+This paper focuses on malware classification, and seems theoretically promising for 1D CNNs using temporal max-pooling for other applications. However, it is important that empirical validation data confirms this. Applying this method to domains like genomics could offer a more complete view of its strengths and limitations. This broader validation would also ensure that its memory and energy reduction benefits remain consistent across tasks with different structures.</p>
+
+                        <h1 id="references" pl-9="xs,sm">
+                            <a href="#references" title="References" class="pos-absolute top-50 left-0 t-tY-50 | p-4 ml-1 | td-none | brad-4 bc-neutral-100 bwidth-1 bstyle-dashed bcolor-neutral-500 __hover-1 __soft-shadow" ml-3="xs,sm">
+                                <span class="icon-link-simple | pos-absolute top-50 left-50 t-tY-50 t-tX-50 | fs-4"></span>
+                            </a>
+                    References</h1>
+<p>[1] Anandharaju Durai Raju and Ke Wang. 2024. Low Carbon Footprint Training for 1D-CNNs with Temporal Max-Pooling. In Proceedings of the 33rd ACM International Conference on Information and Knowledge Management, Boise, ID, USA, October 21–25. ACM, New York, NY, USA, 549–559. DOI: 10.1145/3627673.3679678</p>
+<p>[2] Edward Raff, William Fleshman, Richard Zak, Hyrum S. Anderson, Bobby Filar, and Mark McLean. 2021. Classifying Sequences of Extreme Length with Constant Memory Applied to Malware Detection. Proceedings of the AAAI Conference on Artificial Intelligence 35, 11 (2021), 9386–9394. DOI: 10.1609/aaai.v35i11.17131</p>
+<p>[3] Tri Dao, Daniel Y. Fu, Stefano Ermon, Atri Rudra, and Christopher Ré. 2022. FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness. In Advances in Neural Information Processing Systems, Vol. 35. arXiv:2205.14135. DOI: 10.48550/arXiv.2205.14135</p>
+<p>[4] Di Gu, Yujia Zhao, Peng Sun, Xiaoyang Jin, and Xu Liu. 2025. GreenFlow: A Carbon-Efficient Scheduler for Deep Learning Workloads. IEEE Transactions on Parallel and Distributed Systems 36, 2 (2025), 168–184. DOI: 10.1109/TPDS.2024.3470074</p>
+<p>[5] Nestor Maslej, Loredana Fattorini, Erik Brynjolfsson, John Etchemendy, Katrina Ligett, Terah Lyons, James Manyika, Helen Ngo, Juan Carlos Niebles, Vanessa Parli, Yoav Shoham, Russell Wald, Jack Clark, and Raymond Perrault. 2023. Artificial Intelligence Index Report 2023. Stanford Institute for Human-Centered Artificial Intelligence (HAI), Stanford University. arXiv:2310.03715. DOI: 10.48550/arXiv.2310.03715</p>
+<p>[6] Nestor Maslej, Loredana Fattorini, Raymond Perrault, Yolanda Gil, Vanessa Parli, Njenga Kariuki, Emily Capstick, Anka Reuel, Erik Brynjolfsson, John Etchemendy, Katrina Ligett, Terah Lyons, James Manyika, Juan Carlos Niebles, Yoav Shoham, Russell Wald, Tobi Walsh, Armin Hamrah, Lapo Santarlasci, Julia Betts Lotufo, Alexandra Rome, Andrew Shi, and Sukrut Oak. 2025. Artificial Intelligence Index Report 2025. Stanford Institute for Human-Centered Artificial Intelligence (HAI), Stanford University. arXiv:2504.07139. DOI: 10.48550/arXiv.2504.07139</p>
+
+            <footer class="minh-100vh">
+                <div class="pt-11 | blwidth-1 blstyle-dashed bcolor-neutral-500"></div>
+                <nav class="d-flex ai-center rgap-7 | blwidth-1 blstyle-dashed bcolor-neutral-500" fw-wrap="xs">
+                    <div class="pl-5 | bbwidth-1 bbstyle-dashed bcolor-neutral-500"></div>
+                    
+                        <a href="https://github.com/ita-design-system/eleventy-libdoc/blob/main/poster.md" target="_blank" class="btn btn-primary-light">
+                            <span class="icon-pencil-simple"></span>
+                            Edit this page
+                        </a>
+                    
+                    <div class="w-100" d-none="sm,md"></div>
+                    <div class="pl-5 | bbwidth-1 bbstyle-dashed bcolor-neutral-500" w-100="sm,md"></div>
+                    <a href="https://github.com/ita-design-system/eleventy-libdoc" target="_blank" class="d-flex ai-center gap-2 | pl-2 pr-2 | fvs-wght-400 fs-2 lsp-3 lh-3 td-none ws-nowrap">
+                        11ty LibDoc 0.11.0
+                    </a>
+                </nav>
+            </footer>
+        </main>
+    </div>
+    
+    <script src="/core/assets/js/sandbox.js"></script>
+    <script src="/core/assets/js/hljs/highlight.min.js"></script>
+    
+        <script src="/core/assets/js/hljs/languages/xml.min.js"></script>
+    
+        <script src="/core/assets/js/hljs/languages/javascript.min.js"></script>
+    
+        <script src="/core/assets/js/hljs/languages/json.min.js"></script>
+    
+        <script src="/core/assets/js/hljs/languages/yaml.min.js"></script>
+    
+        <script src="/core/assets/js/hljs/languages/liquid.min.js"></script>
+    
+        <script src="/core/assets/js/hljs/languages/markdown.min.js"></script>
+    
+        <script src="/core/assets/js/hljs/languages/css.min.js"></script>
+    
+    <script src="/core/assets/js/ui.js"></script>
+    
+        <link rel="stylesheet" href="/core/assets/css/autocomplete.css">
+        <script src="/core/assets/js/autocomplete.min.js"></script>
+        <script src="/core/assets/js/fuse.js"></script>
+        <script src="/core/assets/js/fuzzy.js"></script>
+        <script src="/core/assets/js/hotkeys.min.js"></script>
+    
+</body>
+</html>
