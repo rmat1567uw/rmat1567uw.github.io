@@ -2,6 +2,10 @@ node_modules
 .vscode
 .cache
 .DS_Store
-_data/envlocal.json
+_data
 .env
 /assets/___dummy_content
+_includes
+assets
+core
+sandboxes
