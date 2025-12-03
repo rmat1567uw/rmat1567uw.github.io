@@ -1,32 +1,24 @@
 {
-    "siteTitle": "My Project Title",
+    "siteTitle": "Low Carbon Footprint for 1D-CNNs with Temporal Max-Pooling",
     "siteDescription": "This is the description of my project title",
-    "author": "John Doe",
+    "author": "Selly Beyene, Sean Giroux, Ria Jayaram, Ryan Mateo, Caleb Lefcort",
     "faviconUrl": "/assets/myfavicon.png",
     "blogTitle": "Blog",
     "blogDescription": "Here is the description of the blog part",
-    "productionUrl": "https://eleventy-libdoc.netlify.app",
+    "productionUrl": "https://rmat1567uw.github.io",
     "customLinks": [
         {
-            "url": "/feed.xml",
-            "text": "Atom feed"
+            "url": "https://dl.acm.org/doi/10.1145/3627673.3679678",
+            "text": "ACM"
         },
         {
-            "url": "https://github.com/ita-design-system/eleventy-libdoc",
+            "url": "https://github.com/anandharaju/HotConv",
             "text": "GitHub"
-        },
-        {
-            "url": "#",
-            "text": "Bluesky"
-        },
-        {
-            "url": "#",
-            "text": "LinkedIn"
-        },
-        {
-            "url": "#",
-            "text": "CodePen"
         }
     ],
-    "editThisPageRootUrl": "https://github.com/ita-design-system/eleventy-libdoc/blob/main"
+    "editThisPageRootUrl": "https://github.com/ita-design-system/eleventy-libdoc/blob/main",
+    "tocEnabled": true,
+    "tocHtmlTags": ["h1", "h2", "h3", "h4", "h5", "h6"],
+    "tocMinTags": 1,
+    "displayTagsListLink": false
 }
