@@ -482,10 +482,10 @@
                     Methods</h1>
 <p><strong>PDL (Partitioned Data Loading)</strong>
 PDL reduces training time by grouping samples of similar length into partitions stored on disk. During training, only one partition is loaded into RAM at a time, allowing batches with minimal padding while still preserving randomness. This eliminates costly disk access and roughly halves total training time compared to MalConv2.
-<picture class="eleventy-image"><source type="image/avif" srcset="/alg1-sZPRvmLeUH-__258__.avif 258w"><img loading="lazy" decoding="async" src="/alg1-sZPRvmLeUH-__258__.webp" alt="Image" width="258" height="205"></picture></p>
+<picture class="eleventy-image"><source type="image/avif" srcset="/fig3-j1AJpmWS8H-__730__.avif 730w"><img loading="lazy" decoding="async" src="/fig3-j1AJpmWS8H-__730__.webp" alt="Image" width="730" height="434"></picture></p>
 <p><strong>HotConv</strong>
 A training strategy that reduces GPU memory usage by exploiting the sparsity in temporal max-pooling: only one “hot” activation per filter is needed. It avoids the expensive second forward pass used in MalConv2 by storing only the relevant activations and gradients, reducing GPU memory consumption and carbon footprint without hurting accuracy.
-<picture class="eleventy-image"><source type="image/avif" srcset="/fig3-j1AJpmWS8H-__730__.avif 730w"><img loading="lazy" decoding="async" src="/fig3-j1AJpmWS8H-__730__.webp" alt="Image" width="730" height="434"></picture></p>
+<picture class="eleventy-image"><source type="image/avif" srcset="/alg1-sZPRvmLeUH-__258__.avif 258w"><img loading="lazy" decoding="async" src="/alg1-sZPRvmLeUH-__258__.webp" alt="Image" width="258" height="205"></picture></p>
 <p><strong>HotConvEco</strong>
 Extends HotConv by also slicing the backward so that only a subset of necessary embeddings and gradients are kept in GPU memory at once. This further reduces GPU memory usage to about 1/22 that of MalConv2, making training faster, more carbon-efficient, and feasible even under tiny GPU budgets.</p>
 
